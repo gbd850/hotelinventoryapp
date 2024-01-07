@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Room, Roomtype } from './room';
+import { RoomListComponent } from './room-list/room-list.component';
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [],
+  imports: [RoomListComponent],
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss'
 })
