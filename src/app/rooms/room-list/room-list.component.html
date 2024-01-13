@@ -14,8 +14,10 @@
     <td>{{ room.price }}</td>
     <td>{{ room.isAvailable }}</td>
     <td>
-      <button class="btn btn-primary" [routerLink]="['/rooms', room.id]">Book Room</button>
+      <button class="btn btn-primary" [routerLink]="['/roomlist', room.id]">Book Room</button>
     </td>
   </tr>
   }
 </table>
+
+<router-outlet></router-outlet>

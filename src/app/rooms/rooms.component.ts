@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Room, Roomtype } from './room';
 import { RoomListComponent } from './room-list/room-list.component';
 import { RoomsService } from './service/rooms.service';
-import { Photo } from './service/photo';
+import { Photo } from './photo';
 import { HttpEventType } from '@angular/common/http';
 import { CommonModule, NgIf } from '@angular/common';
 import { NavComponent } from '../nav/nav.component';
@@ -31,6 +31,7 @@ export class RoomsComponent implements OnInit {
     // this.roomsService.getRoomsList$.subscribe(
     //   (rooms) => (this.rooms = this.rooms)
     // );
+
     this.roomsService.getPhotos$.subscribe((event) => {
       switch (event.type) {
         case HttpEventType.ResponseHeader: {
