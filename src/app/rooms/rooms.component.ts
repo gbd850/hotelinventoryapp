@@ -21,10 +21,13 @@ export class RoomsComponent implements OnInit{
   totalBytes = 0;
   isDataLoaded = false;
 
+  errors = this.roomsService.error$.asObservable();
+
   constructor(private roomsService : RoomsService) {}
 
   ngOnInit(): void {
     // this.roomsService.getRoomsList().subscribe(rooms => this.rooms = rooms);
+    this.roomsService.getRoomsList$.subscribe(rooms => this.rooms = this.rooms);
     this.roomsService.getPhotos$.subscribe(event => {
       switch (event.type) {
         case HttpEventType.ResponseHeader : {

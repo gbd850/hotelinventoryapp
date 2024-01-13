@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Room, Roomtype } from '../room';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Photo } from './photo';
-import { shareReplay } from 'rxjs';
+import { Subject, catchError, of, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +30,17 @@ export class RoomsService {
   // }
   ]
 
+  error$ = new Subject<string>();
+
   getPhotos$ = this.getPhotos().pipe(
     shareReplay(1)
+  );
+
+  getRoomsList$ = this.getRoomsList().pipe(
+    catchError(err => {
+      this.error$.next(err.message);
+      return of([]);
+    })
   );
 
   constructor(private http : HttpClient) { }
