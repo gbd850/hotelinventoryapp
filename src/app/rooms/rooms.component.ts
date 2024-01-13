@@ -5,6 +5,7 @@ import { RoomsService } from './service/rooms.service';
 import { Photo } from './service/photo';
 import { HttpEventType } from '@angular/common/http';
 import { CommonModule, NgIf } from '@angular/common';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-rooms',
