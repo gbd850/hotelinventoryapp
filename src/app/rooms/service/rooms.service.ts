@@ -39,6 +39,6 @@ export class RoomsService {
     const request = new HttpRequest('GET', 'https://jsonplaceholder.typicode.com/photos', {
       reportProgress : true
     });
-    return this.http.request(request);
+    return this.http.request<Photo[]>(request);
   }
 }

@@ -4,11 +4,12 @@ import { RoomListComponent } from './room-list/room-list.component';
 import { RoomsService } from './service/rooms.service';
 import { Photo } from './service/photo';
 import { HttpEventType } from '@angular/common/http';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [RoomListComponent],
+  imports: [RoomListComponent, CommonModule],
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss'
 })
@@ -18,6 +19,7 @@ export class RoomsComponent implements OnInit{
   photos : Photo[] = [];
 
   totalBytes = 0;
+  isDataLoaded = false;
 
   constructor(private roomsService : RoomsService) {}
 
@@ -35,7 +37,9 @@ export class RoomsComponent implements OnInit{
           break;
         }
         case HttpEventType.Response : {
+          this.isDataLoaded = true;
           console.log(event.body);
+          this.photos = event.body!;
         }
       }
     });
