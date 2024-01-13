@@ -7,13 +7,13 @@ import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.compo
 export const routes: Routes = [
   {
     path: 'rooms',
-    component: RoomsComponent,
+    loadComponent: () => import('./rooms/rooms.component').then(m=>m.RoomsComponent),
   },
   {
     path: 'roomlist',
     component: RoomListComponent,
     children: [{ path: ':id', component: RoomsBookingComponent }],
   },
-  { path: '', redirectTo: '/rooms', pathMatch: 'full' },
+  { path: '', redirectTo: '/roomlist', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent },
 ];
