@@ -1,16 +1,21 @@
 <table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Price</th>
-        <th>Available</th>
-    </tr>
-@for (room of rooms; track $index) {
-    <tr>
-        <td>{{room.name}}</td>
-        <td>{{room.type}}</td>
-        <td>{{room.price}}</td>
-        <td>{{room.isAvailable}}</td>
-    </tr>
-}
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>Available</th>
+  </tr>
+  @for (room of rooms; track $index) {
+  <tr>
+    <td>{{ room.id }}</td>
+    <td>{{ room.name }}</td>
+    <td>{{ room.type }}</td>
+    <td>{{ room.price }}</td>
+    <td>{{ room.isAvailable }}</td>
+    <td>
+      <button class="btn btn-primary" [routerLink]="['/rooms', room.id]">Book Room</button>
+    </td>
+  </tr>
+  }
 </table>

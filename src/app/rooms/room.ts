@@ -1,12 +1,13 @@
 export enum Roomtype {
-    Standard = "Standard",
-    Deluxe = "Deluxe",
-    Suite = "Suite"
+  Standard = 'Standard',
+  Deluxe = 'Deluxe',
+  Suite = 'Suite',
 }
 
 export interface Room {
-    name : string,
-    price : number,
-    isAvailable : boolean,
-    type : Roomtype
+  id: number;
+  name: string;
+  price: number;
+  isAvailable: boolean;
+  type: Roomtype;
 }
