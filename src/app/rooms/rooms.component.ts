@@ -26,9 +26,10 @@ export class RoomsComponent implements OnInit {
 
   ngOnInit(): void {
     // this.roomsService.getRoomsList().subscribe(rooms => this.rooms = rooms);
-    this.roomsService.getRoomsList$.subscribe(
-      (rooms) => (this.rooms = this.rooms)
-    );
+
+    // this.roomsService.getRoomsList$.subscribe(
+    //   (rooms) => (this.rooms = this.rooms)
+    // );
     this.roomsService.getPhotos$.subscribe((event) => {
       switch (event.type) {
         case HttpEventType.ResponseHeader: {
