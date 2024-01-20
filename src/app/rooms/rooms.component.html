@@ -1,0 +1,27 @@
+<h1>Hotel Inventory App</h1>
+
+<p *ngIf="errors">{{ errors | async }}</p>
+
+<!-- <app-room-list [rooms]="rooms"></app-room-list> -->
+
+<h2>{{ totalBytes }} loaded</h2>
+
+<h3 *ngIf="!isDataLoaded">Loading data ...</h3>
+<table *ngIf="isDataLoaded" class="table">
+  <tr>
+    <th>albumId</th>
+    <th>id</th>
+    <th>title</th>
+    <th>url</th>
+    <th>thumbnailUrl</th>
+  </tr>
+  @for (photo of photos; track $index) {
+  <tr>
+    <td>{{ photo.albumId }}</td>
+    <td>{{ photo.id }}</td>
+    <td>{{ photo.title }}</td>
+    <td>{{ photo.url }}</td>
+    <td>{{ photo.thumbnailUrl }}</td>
+  </tr>
+  }
+</table>
